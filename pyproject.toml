@@ -1,0 +1,49 @@
+[project]
+name = "tard"
+version = "0.1.0"
+description = "Topology-Attribute Relational Distortion: measure and visualize how learned node representations change topology-attribute relationships."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Sjoerd Vink" }]
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.8",
+    "networkx>=3.2",
+    "numpy>=1.26",
+    "pandas>=2.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+notebooks = [
+    "gensim>=4.4",
+    "jupyter>=1.1",
+    "scikit-learn>=1.9.1",
+]
+case-study = [
+    "jupyter>=1.1",
+    "scikit-learn>=1.9.1",
+    "torch>=2.4",
+    "torch-geometric>=2.6",
+]
+
+[build-system]
+requires = ["uv_build>=0.8,<0.10"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv]
+default-groups = ["dev", "notebooks"]
